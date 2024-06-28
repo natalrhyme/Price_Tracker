@@ -237,7 +237,7 @@ const SomeFunction = (newPrice,oldPrice,userLink,userEmail) => {
                 clientID: process.env.CLIENT_EMAIL,
                 clientSecret: process.env.CLIENT_SECRET_EMAIL,
                 refreshToken:process.env.REFRESH_TOKEN,
-                accessToken:"ya29.A0AVA9y1tyIT4qYfFEH0-_i0ycQ6pbjE1mlHVpiFddl6Ix1WlpUcPmA9uKst43cPmTTmnQiy1yYBUmL_FK6jhzVtBMgruGsiYWnpxjdbemRZHXQaERIzzdu9WAAc1e2TzFShA_fXod1uqReQ1hO3VYToXoGaCkrwYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4R041YloyTE1xNmJiSEZGY1NIT29LUQ0165"
+                accessToken:"process.env.accessToken"
                 }
             });
             console.log(userEmail);
