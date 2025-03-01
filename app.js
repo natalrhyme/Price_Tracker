@@ -31,7 +31,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/userDB");
+mongoose.connect("mongodb://127.0.0.1/userDB");
 const linkPriceSchema=mongoose.Schema({
     link:String,
     price:String,
@@ -150,7 +150,7 @@ app.post("/register",function(req,res){
      if(err)
      {
          console.log(err);
-         req.redirect("/register");
+         res.redirect("/register");
      }
      else{
              passport.authenticate("local")(req,res,function(){
@@ -223,8 +223,6 @@ app.listen(3000,function(){
 
 
 
-
-
 const SomeFunction = (newPrice,oldPrice,userLink,userEmail) => {
     const googleOauth2= new google.auth.OAuth2(process.env.CLIENT_EMAIL,process.env.CLIENT_SECRET_EMAIL);
     googleOauth2.setCredentials({refresh_token:process.env.REFRESH_TOKEN})
@@ -235,16 +233,16 @@ const SomeFunction = (newPrice,oldPrice,userLink,userEmail) => {
                 service:'gmail',
                 auth: {
                 type:"OAuth2",
-                user:"kartiksangwan10@gmail.com",
+                user:"Rishabhsangwan046@gmail.com",
                 clientID: process.env.CLIENT_EMAIL,
                 clientSecret: process.env.CLIENT_SECRET_EMAIL,
                 refreshToken:process.env.REFRESH_TOKEN,
-                accessToken:"ya29.A0AVA9y1tyIT4qYfFEH0-_i0ycQ6pbjE1mlHVpiFddl6Ix1WlpUcPmA9uKst43cPmTTmnQiy1yYBUmL_FK6jhzVtBMgruGsiYWnpxjdbemRZHXQaERIzzdu9WAAc1e2TzFShA_fXod1uqReQ1hO3VYToXoGaCkrwYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4R041YloyTE1xNmJiSEZGY1NIT29LUQ0165"
+                accessToken:process.env.ACCESS_TOKEN
                 }
             });
             console.log(userEmail);
             const mailOptions={
-                from:"<kartiksangwan10@gmail.com>",
+                from:"<Rishabhsangwan046@gmail.com>",
                 to:userEmail,
                 subject:"PRICE DROP ALERT",
                 text:"The price for your product "+userLink+" has dropped from "+oldPrice+" to "+newPrice+". Shop now!!"
